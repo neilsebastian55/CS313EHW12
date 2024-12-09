@@ -13,10 +13,8 @@ code to someone else), the case shall be submitted to the Office of the Dean of
 Students. Academic penalties up to and including an F in the course are likely.
 
 UT EID 1: ns36965
+UT EID 2:
 """
-
-import sys
-
 
 class Node:
     """
@@ -263,11 +261,9 @@ class Graph:
                     if dfs(adj_vertex, visited_nodes, recursive_stack):
                         return True
                 elif recursive_stack[adj_vertex]:
-                    return True
-                    
+                    return True                    
             recursive_stack[vertex] = False
             return False
-        
         visited_nodes = [False] * len(self.vertices)
         recursive_stack = [False] * len(self.vertices)
 
@@ -318,9 +314,7 @@ class Graph:
         while temp_vertices:
             now_semester = []
             no_prereqs = [
-                val for val in range(len(temp_vertices)) if all(row[val] == 0 for row in temp_matrix)
-            ]
-
+                val for val in range(len(temp_vertices)) if all(row[val] == 0 for row in temp_matrix)]
             for index in sorted(no_prereqs, reverse=True):
                 if len(now_semester) < 4:
                     now_semester.append(temp_vertices[index].label)
@@ -328,11 +322,9 @@ class Graph:
 
             if now_semester:
                 courses.append(now_semester)
-        
         return courses
 
 
-# TODO: Modify this function. You may delete this comment when you are done.
 def main():
     """
     The main function to retrieve a registration plan.
